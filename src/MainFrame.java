@@ -5,7 +5,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class MainFrame extends JFrame {
+public class MainFrame extends JFrame implements PanelChangeListener {
 
 	private JPanel contentPane;
 
@@ -31,10 +31,26 @@ public class MainFrame extends JFrame {
 	public MainFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(200, 200, 500, 500);
-		contentPane = new FirstPanel();
+		contentPane = new HomePanel(this);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 	}
+	
+	@Override
+	public void changePanel(String panelName) {
+		
+		JPanel newPanel = null;
+		if(panelName.equals("FirstPanel")) {
+			newPanel = new FirstPanel();
+			if(newPanel != null) {
+				setContentPane(newPanel);
+				validate();
+			}
+		}
+		
+	}
+	
+	
 
 }
