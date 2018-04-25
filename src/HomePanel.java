@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -40,6 +41,23 @@ public class HomePanel extends JPanel {
 			
 		});
 		add(playButton);
+		
+		JButton btnHowToPlay = new JButton("HOW TO PLAY");
+		btnHowToPlay.setBounds(166, 157, 117, 29);
+		add(btnHowToPlay);
+		
+		btnHowToPlay.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				listener.changePanel("");
+				
+			}
+			
+		});
+		
+		
 		
 		
 		
