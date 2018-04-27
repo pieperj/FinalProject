@@ -14,7 +14,7 @@ import javax.swing.Timer;
 public class FirstPanel extends JPanel {
 	
 	private int score = 0;
-	private int highScore = 00;
+	private int highScore = 0;
 	
 	private int ulx = 10, uly = 10;
 	private final int SIDE_LENGTH = 25, UP = 0, RIGHT = 1, DOWN = 2, LEFT = 3;
