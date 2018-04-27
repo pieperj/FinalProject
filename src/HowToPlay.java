@@ -59,7 +59,7 @@ public class HowToPlay extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				listener.changePanel("");
+				listener.changePanel("HomePanel");
 				
 			}
 			

@@ -39,6 +39,8 @@ public class FirstPanel extends JPanel {
 		Lblsnake.setFont(new Font("Futura", Font.PLAIN, 40));
 		add(Lblsnake);
 		
+		System.out.println("hey");
+		
 		JLabel lblHighScore = new JLabel("High Score: " + String.format("%02d", highScore));
 		lblHighScore.setForeground(Color.WHITE);
 		lblHighScore.setBounds(375, 15, 139, 37);

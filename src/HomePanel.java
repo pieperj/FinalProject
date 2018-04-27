@@ -49,6 +49,8 @@ public class HomePanel extends JPanel {
 		btnHowToPlay.setBounds(166, 157, 117, 29);
 		add(btnHowToPlay);
 		
+	
+		
 		btnHowToPlay.addActionListener(new ActionListener() {
 
 			@Override
