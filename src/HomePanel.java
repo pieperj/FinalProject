@@ -20,6 +20,7 @@ public class HomePanel extends JPanel {
 		setBackground(Color.BLACK);
 		setLayout(null);
 		this.listener = l;
+		System.out.println("hello");
 		
 		
 		JLabel snakeLabel = new JLabel("SNAKE");
