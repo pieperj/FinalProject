@@ -10,7 +10,8 @@ import javax.swing.JPanel;
 
 public class HomePanel extends JPanel {
 
-	private PanelChangeListener listener;
+	private PanelChangeListener listener, listener2;
+	
 	
 	/**
 	 * Create the panel.
@@ -20,6 +21,7 @@ public class HomePanel extends JPanel {
 		setBackground(Color.BLACK);
 		setLayout(null);
 		this.listener = l;
+		
 		System.out.println("hello");
 		
 		
@@ -52,7 +54,7 @@ public class HomePanel extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				listener.changePanel("");
+				listener.changePanel("HowToPlay");
 				
 			}
 			

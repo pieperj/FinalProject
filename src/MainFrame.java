@@ -50,6 +50,13 @@ public class MainFrame extends JFrame implements PanelChangeListener {
 				validate();
 			}
 		}
+		else if(panelName.equals("HowToPlay")) {
+			newPanel = new HowToPlay(this);
+			if(newPanel != null) {
+				setContentPane(newPanel);
+				validate();
+			}
+		}
 		
 	}
 	
