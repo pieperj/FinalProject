@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Font;
+
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 import javax.swing.Timer;
+
 
 public class FirstPanel extends JPanel {
 	
@@ -23,13 +25,16 @@ public class FirstPanel extends JPanel {
 	/**
 	 * Create the panel.
 	 */
+
 	public FirstPanel() {
 		setBackground(Color.BLACK);
 		setLayout(null);
 		
-		JLabel scoreLabel = new JLabel("Score: " + score);
+		
+		
+		JLabel scoreLabel = new JLabel("Score: " + String.format("%02d", score));
 		scoreLabel.setForeground(Color.WHITE);
-		scoreLabel.setBounds(6, 15, 138, 37);
+		scoreLabel.setBounds(6, 21, 138, 37);
 		scoreLabel.setFont(new Font("Futura", Font.PLAIN, 20));
 		add(scoreLabel);
 		
@@ -39,11 +44,13 @@ public class FirstPanel extends JPanel {
 		Lblsnake.setFont(new Font("Futura", Font.PLAIN, 40));
 		add(Lblsnake);
 		
+
 		System.out.println("hey");
 		
 		JLabel lblHighScore = new JLabel("High Score: " + String.format("%02d", highScore));
+
 		lblHighScore.setForeground(Color.WHITE);
-		lblHighScore.setBounds(375, 15, 139, 37);
+		lblHighScore.setBounds(359, 0, 48, 32);
 		lblHighScore.setFont(new Font("Futura", Font.PLAIN, 20));
 		add(lblHighScore);
 		
@@ -121,5 +128,6 @@ public class FirstPanel extends JPanel {
 			
 		}
 		
+
 	}
 }
