@@ -101,7 +101,7 @@ public class FirstPanel extends JPanel {
 	@Override
 	public void paint(Graphics g) {
 		super.paint(g);
-		//g.setColor(Color.GREEN);
+		g.setColor(Color.GREEN);
 		g.fillRect(ulx, uly, SIDE_LENGTH, SIDE_LENGTH);
 		
 	}
