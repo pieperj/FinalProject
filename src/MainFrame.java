@@ -28,6 +28,7 @@ public class MainFrame extends JFrame implements PanelChangeListener {
 	/**
 	 * Create the frame.
 	 */
+	
 	public MainFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(200, 200, 450, 450);
@@ -41,6 +42,7 @@ public class MainFrame extends JFrame implements PanelChangeListener {
 	public void changePanel(String panelName) {
 		
 		JPanel newPanel = null;
+		
 		if(panelName.equals("FirstPanel")) {
 			newPanel = new FirstPanel();
 			if(newPanel != null) {

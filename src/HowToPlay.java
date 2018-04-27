@@ -1,6 +1,8 @@
 import javax.swing.JPanel;
 
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
 import javax.swing.JTextPane;
@@ -9,12 +11,16 @@ import javax.swing.JButton;
 
 public class HowToPlay extends JPanel {
 
+	private PanelChangeListener listener;
+
+	
 	/**
 	 * Create the panel.
 	 */
-	public HowToPlay() {
+	public HowToPlay(PanelChangeListener l) {
 		setBackground(Color.BLACK);
 		setLayout(null);
+		this.listener = l;
 		
 		JLabel howToPlayLabel = new JLabel("HOW TO PLAY");
 		howToPlayLabel.setForeground(Color.WHITE);
@@ -48,6 +54,16 @@ public class HowToPlay extends JPanel {
 		
 		JButton btnHome = new JButton("Home");
 		btnHome.setBounds(6, 265, 117, 29);
+		btnHome.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				listener.changePanel("");
+				
+			}
+			
+		});
 		add(btnHome);
 		
 		
