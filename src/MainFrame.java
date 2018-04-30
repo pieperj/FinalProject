@@ -1,9 +1,12 @@
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.event.KeyEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.KeyStroke;
 import javax.swing.border.EmptyBorder;
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MoveAction;
 
 public class MainFrame extends JFrame implements PanelChangeListener {
 
@@ -32,6 +35,7 @@ public class MainFrame extends JFrame implements PanelChangeListener {
 	public MainFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(200, 200, 450, 450);
+		
 		contentPane = new HomePanel(this);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
