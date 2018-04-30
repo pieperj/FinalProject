@@ -18,6 +18,7 @@ public class HomePanel extends JPanel {
 	 */
 	
 	public HomePanel(PanelChangeListener l) {
+		setForeground(Color.BLACK);
 		setBackground(Color.BLACK);
 		setLayout(null);
 		this.listener = l;
