@@ -1,13 +1,13 @@
-import javax.swing.JPanel;
-
+import java.awt.Color;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JLabel;
-import javax.swing.JTextPane;
-import java.awt.Color;
 import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextPane;
 
 public class HowToPlay extends JPanel {
 
@@ -65,8 +65,13 @@ public class HowToPlay extends JPanel {
 			
 		});
 		add(btnHome);
+	
+	}
+	@Override
+	public void paint(Graphics g) {
+		super.paint(g);
 		
-		
-		
+		g.setColor(Color.GREEN);
+		g.fillRect(250, 250, 25, 25);
 	}
 }
