@@ -34,7 +34,7 @@ public class MainFrame extends JFrame implements PanelChangeListener {
 	
 	public MainFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(200, 200, 450, 450);
+		setBounds(200, 200, 440, 445);
 		
 		contentPane = new HomePanel(this);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
