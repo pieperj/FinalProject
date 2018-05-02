@@ -33,21 +33,21 @@ public class FirstPanel extends JPanel {
 	private int[] possibley = new int[16];
 	
 	
-	
 	private int pelletCoordx, pelletCoordy;
 	
 	/**
 	 * Create the panel.
 	 */
-
+	
 	public FirstPanel() {
 		setBackground(Color.BLACK);
 		setLayout(null);
-
+		
 		for(int i = 0; i < possiblex.length; i++) {
 			possiblex[i] = tempdx;
 			tempdx += 20;
 		}
+		
 		for(int i = 0; i < possibley.length; i++) {
 			possibley[i] = tempdy;
 			tempdy += 20;
@@ -57,7 +57,7 @@ public class FirstPanel extends JPanel {
 		System.out.println(Arrays.toString(possibley));
 
 		
-		JLabel scoreLabel = new JLabel("Score: " + String.format("%02d", score));
+		JLabel scoreLabel = new JLabel("Score: " + String.format("%d", score));
 		scoreLabel.setForeground(Color.WHITE);
 		scoreLabel.setBounds(6, 21, 138, 37);
 		scoreLabel.setFont(new Font("Futura", Font.PLAIN, 20));
@@ -70,7 +70,7 @@ public class FirstPanel extends JPanel {
 		Lblsnake.setFont(new Font("Futura", Font.PLAIN, 40));
 		add(Lblsnake);
 	
-		JLabel lblHighScore = new JLabel("High Score: " + String.format("%02d", highScore));
+		JLabel lblHighScore = new JLabel("High Score: " + String.format("%d", highScore));
 
 		lblHighScore.setForeground(Color.WHITE);
 		lblHighScore.setBounds(292, 8, 138, 63);
@@ -135,7 +135,7 @@ public class FirstPanel extends JPanel {
 				}
 				if(ulx == pelletCoordx && uly == pelletCoordy) {
 					score++;
-					scoreLabel.setText("Score: " + String.format("%02d", score));
+					scoreLabel.setText("Score: " + String.format("%d", score));
 					pelletCoordx = possiblex[(int)(Math.random()*possiblex.length)];
 					pelletCoordy = possibley[(int)(Math.random()*possibley.length)];
 					repaint();
