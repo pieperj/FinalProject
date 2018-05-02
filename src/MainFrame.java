@@ -11,7 +11,7 @@ import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MoveAction;
 public class MainFrame extends JFrame implements PanelChangeListener {
 
 	private JPanel contentPane;
-
+	
 	/**
 	 * Launch the application.
 	 */
