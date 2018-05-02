@@ -9,12 +9,14 @@ import java.awt.event.KeyEvent;
 import java.util.Arrays;
 
 import javax.swing.AbstractAction;
+import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 import javax.swing.Timer;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+import javax.swing.ImageIcon;
 
 
 
@@ -34,15 +36,15 @@ public class FirstPanel extends JPanel {
 	
 	
 	private int pelletCoordx, pelletCoordy;
-	
+	private PanelChangeListener listener;
 	/**
 	 * Create the panel.
 	 */
 	
-	public FirstPanel() {
+	public FirstPanel(PanelChangeListener l) {
 		setBackground(Color.BLACK);
 		setLayout(null);
-		
+		this.listener = l;
 		for(int i = 0; i < possiblex.length; i++) {
 			possiblex[i] = tempdx;
 			tempdx += 20;
@@ -76,6 +78,22 @@ public class FirstPanel extends JPanel {
 		lblHighScore.setBounds(292, 8, 138, 63);
 		lblHighScore.setFont(new Font("Futura", Font.PLAIN, 20));
 		add(lblHighScore);
+		
+		JButton btnRetry = new JButton("Retry");
+		btnRetry.setIcon(new ImageIcon("/Users/risherd/Desktop/Black_Screen.png"));
+		btnRetry.setBackground(Color.BLACK);
+		btnRetry.setForeground(Color.BLACK);
+		btnRetry.setBounds(143, 194, 137, 42);
+		btnRetry.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				listener.changePanel("FirstPanel");
+				
+			}
+			
+		});
 		
 		JLabel lblGameOver = new JLabel("GAME OVER");
 		lblGameOver.setHorizontalAlignment(SwingConstants.CENTER);
@@ -149,6 +167,7 @@ public class FirstPanel extends JPanel {
 				
 				else {
 					add(lblGameOver);
+					add(btnRetry);
 					if(score > highScore) {
 						highScore = score;
 						lblHighScore.setText("High Score: " + String.format("%02d", highScore));
