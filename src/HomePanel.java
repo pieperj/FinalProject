@@ -10,12 +10,9 @@ import javax.swing.JPanel;
 
 public class HomePanel extends JPanel {
 
-	private PanelChangeListener listener, listener2;
+	private PanelChangeListener listener;
 	
 	
-	/**
-	 * Create the panel.
-	 */
 	
 	public HomePanel(PanelChangeListener l) {
 		setForeground(Color.BLACK);

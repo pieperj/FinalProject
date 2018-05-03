@@ -12,7 +12,7 @@ import javax.swing.JTextPane;
 public class HowToPlay extends JPanel {
 
 	private PanelChangeListener listener;
-
+	
 	
 	/**
 	 * Create the panel.
@@ -35,7 +35,6 @@ public class HowToPlay extends JPanel {
 		txtpnUseThe.setText("• Use the arrow keys to move the snake up, down, left, and right.");
 		txtpnUseThe.setBounds(64, 58, 324, 40);
 		add(txtpnUseThe);
-		
 		JTextPane txtpnCollectThe = new JTextPane();
 		txtpnCollectThe.setText("• Collect the pellet to earn points and make your snake grow.");
 		txtpnCollectThe.setForeground(Color.GREEN);

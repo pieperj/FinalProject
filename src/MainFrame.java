@@ -11,7 +11,7 @@ import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MoveAction;
 public class MainFrame extends JFrame implements PanelChangeListener {
 
 	private JPanel contentPane;
-
+	
 	/**
 	 * Launch the application.
 	 */
@@ -48,7 +48,7 @@ public class MainFrame extends JFrame implements PanelChangeListener {
 		JPanel newPanel = null;
 		
 		if(panelName.equals("FirstPanel")) {
-			newPanel = new FirstPanel();
+			newPanel = new FirstPanel(this);
 			if(newPanel != null) {
 				setContentPane(newPanel);
 				validate();
