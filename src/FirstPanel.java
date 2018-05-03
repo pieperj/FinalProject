@@ -101,7 +101,6 @@ public class FirstPanel extends JPanel {
 		lblGameOver.setForeground(Color.RED);
 		lblGameOver.setBounds(91, 128, 243, 54);
 		
-		
 		getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_UP, 0), "moveUp");
 		getActionMap().put("moveUp", new MoveAction(UP));
 		
@@ -110,7 +109,7 @@ public class FirstPanel extends JPanel {
 
 		getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_LEFT, 0), "moveLeft");
 		getActionMap().put("moveLeft", new MoveAction(LEFT));
-		
+	
 		getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, 0), "moveRight");
 		getActionMap().put("moveRight", new MoveAction(RIGHT));
 		
