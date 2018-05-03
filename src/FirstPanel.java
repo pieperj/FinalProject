@@ -23,7 +23,7 @@ import javax.swing.ImageIcon;
 public class FirstPanel extends JPanel {
 	
 	private int score = 0;
-	private int highScore = 1;
+	public int highScore = 0;
 	
 	private int ulx = 100, uly = 100;
 	private final int SIDE_LENGTH = 20, UP = 0, RIGHT = 1, DOWN = 2, LEFT = 3;
@@ -77,18 +77,29 @@ public class FirstPanel extends JPanel {
 		lblHighScore.setFont(new Font("Futura", Font.PLAIN, 20));
 		add(lblHighScore);
 		
+		JButton homeButton = new JButton("Home");
+		homeButton.setBounds(155, 250, 137, 42);
+		homeButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				listener.changePanel("HomePanel");
+				
+			}
+			
+		});
+		
 		JButton btnRetry = new JButton("Retry");
-		btnRetry.setIcon(new ImageIcon("/Users/risherd/Desktop/Black_Screen.png"));
+		//btnRetry.setIcon(new ImageIcon("/Users/risherd/Desktop/Black_Screen.png"));
+		
 		btnRetry.setBackground(Color.BLACK);
-		btnRetry.setForeground(Color.BLACK);
+		btnRetry.setForeground(Color.WHITE);
 		btnRetry.setBounds(155, 194, 137, 42);
 		btnRetry.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
 				listener.changePanel("FirstPanel");
-				
 			}
 			
 		});
@@ -96,8 +107,9 @@ public class FirstPanel extends JPanel {
 		JLabel lblGameOver = new JLabel("GAME OVER");
 		lblGameOver.setHorizontalAlignment(SwingConstants.CENTER);
 		lblGameOver.setFont(new Font("Lucida Grande", Font.PLAIN, 30));
+		lblGameOver.setBackground(Color.BLACK);
 		lblGameOver.setForeground(Color.RED);
-		lblGameOver.setBounds(91, 128, 243, 54);
+		lblGameOver.setBounds(100, 128, 243, 54);
 		
 		getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_UP, 0), "moveUp");
 		getActionMap().put("moveUp", new MoveAction(UP));
@@ -165,6 +177,7 @@ public class FirstPanel extends JPanel {
 				else {
 					add(lblGameOver);
 					add(btnRetry);
+					add(homeButton);
 					if(score > highScore) {
 						highScore = score;
 						lblHighScore.setText("High Score: " + String.format("%02d", highScore));

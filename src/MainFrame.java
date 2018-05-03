@@ -11,6 +11,7 @@ import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MoveAction;
 public class MainFrame extends JFrame implements PanelChangeListener {
 
 	private JPanel contentPane;
+	private int highScore = 0;
 	
 	/**
 	 * Launch the application.
@@ -70,6 +71,7 @@ public class MainFrame extends JFrame implements PanelChangeListener {
 				validate();
 			}
 		}
+		
 		
 	}
 	
