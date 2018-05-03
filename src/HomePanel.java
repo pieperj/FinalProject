@@ -59,11 +59,29 @@ public class HomePanel extends JPanel {
 			}
 			
 		});
-		
-		
-		
-		
-		
+
 		
 	}
+	
+	@Override
+	public void paint(Graphics g) {
+		super.paint(g);
+		
+		g.setColor(Color.GREEN);
+		g.fillRect(148, 300, 25, 25);
+		g.fillRect(174, 300, 25, 25);
+		g.fillRect(200, 300, 25, 25);
+		g.fillRect(226, 300, 25, 25);
+		g.fillRect(252, 300, 25, 25);
+		g.fillRect(278, 300, 25, 25);
+
+		g.fillRect(122, 300, 25, 25);
+		g.fillRect(122, 274, 25, 25);
+		g.fillRect(122, 248, 25, 25);
+		
+		g.setColor(Color.RED);
+		
+		g.fillRect(122, 196, 25, 25);
+	}
 }
+	

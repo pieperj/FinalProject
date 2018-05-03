@@ -66,11 +66,25 @@ public class HowToPlay extends JPanel {
 		add(btnHome);
 	
 	}
+	
 	@Override
 	public void paint(Graphics g) {
 		super.paint(g);
 		
 		g.setColor(Color.GREEN);
-		g.fillRect(250, 250, 25, 25);
+		g.fillRect(198, 325, 25, 25);
+		g.fillRect(224, 325, 25, 25);
+		g.fillRect(250, 325, 25, 25);
+		g.fillRect(276, 325, 25, 25);
+		g.fillRect(302, 325, 25, 25);
+		g.fillRect(328, 325, 25, 25);
+
+		g.fillRect(172, 325, 25, 25);
+		g.fillRect(172, 299, 25, 25);
+		g.fillRect(172, 273, 25, 25);
+		
+		g.setColor(Color.RED);
+		
+		g.fillRect(172, 221, 25, 25);
 	}
 }
