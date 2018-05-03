@@ -21,7 +21,7 @@ import javax.swing.SwingConstants;
 public class FirstPanel extends JPanel {
 	
 	private int score = 0;
-	private int highScore = 0;
+	private int highScore = 1;
 	
 	private int ulx = 100, uly = 100;
 	private final int SIDE_LENGTH = 20, UP = 0, RIGHT = 1, DOWN = 2, LEFT = 3;
