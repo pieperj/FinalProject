@@ -83,7 +83,7 @@ public class FirstPanel extends JPanel {
 		btnRetry.setIcon(new ImageIcon("/Users/risherd/Desktop/Black_Screen.png"));
 		btnRetry.setBackground(Color.BLACK);
 		btnRetry.setForeground(Color.BLACK);
-		btnRetry.setBounds(143, 194, 137, 42);
+		btnRetry.setBounds(155, 194, 137, 42);
 		btnRetry.addActionListener(new ActionListener() {
 
 			@Override
@@ -99,7 +99,7 @@ public class FirstPanel extends JPanel {
 		lblGameOver.setHorizontalAlignment(SwingConstants.CENTER);
 		lblGameOver.setFont(new Font("Lucida Grande", Font.PLAIN, 30));
 		lblGameOver.setForeground(Color.RED);
-		lblGameOver.setBounds(106, 134, 243, 54);
+		lblGameOver.setBounds(91, 128, 243, 54);
 		
 		
 		getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_UP, 0), "moveUp");
