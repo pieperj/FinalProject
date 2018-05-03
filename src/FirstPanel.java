@@ -59,7 +59,7 @@ public class FirstPanel extends JPanel {
 		
 		JLabel scoreLabel = new JLabel("Score: " + String.format("%d", score));
 		scoreLabel.setForeground(Color.WHITE);
-		scoreLabel.setBounds(6, 21, 138, 37);
+		scoreLabel.setBounds(6, 18, 76, 42);
 		scoreLabel.setFont(new Font("Futura", Font.PLAIN, 20));
 		
 		add(scoreLabel);
@@ -70,12 +70,18 @@ public class FirstPanel extends JPanel {
 		Lblsnake.setFont(new Font("Futura", Font.PLAIN, 40));
 		add(Lblsnake);
 	
-		JLabel lblHighScore = new JLabel("High Score: " + String.format("%d", highScore));
+		JLabel lblHighScore = new JLabel("Score: 0");
 
 		lblHighScore.setForeground(Color.WHITE);
-		lblHighScore.setBounds(292, 8, 138, 63);
+		lblHighScore.setBounds(344, 18, 100, 42);
 		lblHighScore.setFont(new Font("Futura", Font.PLAIN, 20));
 		add(lblHighScore);
+		
+		JLabel lblHigh = new JLabel("High");
+		lblHigh.setFont(new Font("Futura", Font.PLAIN, 20));
+		lblHigh.setForeground(Color.WHITE);
+		lblHigh.setBounds(353, 0, 43, 33);
+		add(lblHigh);
 		
 		JButton homeButton = new JButton("Home");
 		homeButton.setBounds(155, 250, 137, 42);
