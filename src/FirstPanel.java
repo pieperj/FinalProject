@@ -132,7 +132,7 @@ public class FirstPanel extends JPanel {
 						dy = 0;
 				}
 				if(ulx == pelletCoordx && uly == pelletCoordy) {
-					score+=100;
+					score++;
 					scoreLabel.setText("Score: " + String.format("%d", score));
 					pelletCoordx = possiblex[(int)(Math.random()*possiblex.length)];
 					pelletCoordy = possibley[(int)(Math.random()*possibley.length)];
