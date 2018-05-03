@@ -32,7 +32,6 @@ public class FirstPanel extends JPanel {
 	private int[] possiblex = new int[19];
 	private int[] possibley = new int[16];
 	
-	
 	private int pelletCoordx, pelletCoordy;
 	
 	/**
@@ -55,7 +54,6 @@ public class FirstPanel extends JPanel {
 		
 		System.out.println(Arrays.toString(possiblex));
 		System.out.println(Arrays.toString(possibley));
-
 		
 		JLabel scoreLabel = new JLabel("Score: " + String.format("%d", score));
 		scoreLabel.setForeground(Color.WHITE);
@@ -134,7 +132,7 @@ public class FirstPanel extends JPanel {
 						dy = 0;
 				}
 				if(ulx == pelletCoordx && uly == pelletCoordy) {
-					score++;
+					score+=100;
 					scoreLabel.setText("Score: " + String.format("%d", score));
 					pelletCoordx = possiblex[(int)(Math.random()*possiblex.length)];
 					pelletCoordy = possibley[(int)(Math.random()*possibley.length)];
