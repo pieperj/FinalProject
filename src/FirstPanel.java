@@ -59,7 +59,7 @@ public class FirstPanel extends JPanel {
 		
 		JLabel scoreLabel = new JLabel("Score: " + String.format("%d", score));
 		scoreLabel.setForeground(Color.WHITE);
-		scoreLabel.setBounds(6, 18, 76, 42);
+		scoreLabel.setBounds(6, 18, 100, 42);
 		scoreLabel.setFont(new Font("Futura", Font.PLAIN, 20));
 		
 		add(scoreLabel);
@@ -168,6 +168,7 @@ public class FirstPanel extends JPanel {
 				}
 				if(ulx == pelletCoordx && uly == pelletCoordy) {
 					score++;
+					
 					scoreLabel.setText("Score: " + String.format("%d", score));
 					pelletCoordx = possiblex[(int)(Math.random()*possiblex.length)];
 					pelletCoordy = possibley[(int)(Math.random()*possibley.length)];
@@ -207,6 +208,8 @@ public class FirstPanel extends JPanel {
 		g.setColor(Color.RED);
 		g.fillRect(pelletCoordx, pelletCoordy, SIDE_LENGTH, SIDE_LENGTH);
 		
+		//if()
+		
 		//sets white borders
 		g.setColor(Color.WHITE);
 		g.drawLine(0, 60, 450, 60);
@@ -215,7 +218,11 @@ public class FirstPanel extends JPanel {
 		g.drawLine(0, 422, 450, 422);
 	}
 	
-	
+	public void addLength(Graphics g) {
+		super.paintComponent(g);
+		g.setColor(Color.GREEN);
+		g.fillRect(pelletCoordx-26, pelletCoordy, SIDE_LENGTH, SIDE_LENGTH);
+	}
 	
 	private class MoveAction extends AbstractAction {
 		private int direction;
