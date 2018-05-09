@@ -31,11 +31,15 @@ public class FirstPanel extends JPanel {
 	
 	private int tempdx = 20;
 	private int tempdy = 80;
+	
+	private int tempCoordx, tempCoordy;
 	private int[] possiblex = new int[19];
 	private int[] possibley = new int[16];
 	
 	private int pelletCoordx, pelletCoordy;
 	private PanelChangeListener listener;
+	
+	private boolean scoreAdded = false;
 	/**
 	 * Create the panel.
 	 */
@@ -98,8 +102,8 @@ public class FirstPanel extends JPanel {
 		JButton btnRetry = new JButton("Retry");
 		//btnRetry.setIcon(new ImageIcon("/Users/risherd/Desktop/Black_Screen.png"));
 		
-		btnRetry.setBackground(Color.BLACK);
-		btnRetry.setForeground(Color.WHITE);
+		btnRetry.setBackground(Color.WHITE);
+		btnRetry.setForeground(Color.BLACK);
 		btnRetry.setBounds(155, 194, 137, 42);
 		btnRetry.addActionListener(new ActionListener() {
 
@@ -168,11 +172,14 @@ public class FirstPanel extends JPanel {
 				}
 				if(ulx == pelletCoordx && uly == pelletCoordy) {
 					score++;
-					
+					scoreAdded = true;
 					scoreLabel.setText("Score: " + String.format("%d", score));
 					pelletCoordx = possiblex[(int)(Math.random()*possiblex.length)];
 					pelletCoordy = possibley[(int)(Math.random()*possibley.length)];
 					repaint();
+				}
+				else {
+					scoreAdded = false;
 				}
 					
 					
@@ -197,8 +204,6 @@ public class FirstPanel extends JPanel {
 		timer.start();
 	}
 	
-	
-	
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
@@ -208,7 +213,10 @@ public class FirstPanel extends JPanel {
 		g.setColor(Color.RED);
 		g.fillRect(pelletCoordx, pelletCoordy, SIDE_LENGTH, SIDE_LENGTH);
 		
-		//if()
+		//if(scoreAdded) {
+			g.setColor(Color.GREEN);
+			g.fillRect(ulx-20, uly, SIDE_LENGTH, SIDE_LENGTH);
+		//}
 		
 		//sets white borders
 		g.setColor(Color.WHITE);
@@ -217,12 +225,15 @@ public class FirstPanel extends JPanel {
 		g.drawLine(0, 60, 0, 430);
 		g.drawLine(0, 422, 450, 422);
 	}
+	/*
+	@Override
 	
-	public void addLength(Graphics g) {
-		super.paintComponent(g);
-		g.setColor(Color.GREEN);
-		g.fillRect(pelletCoordx-26, pelletCoordy, SIDE_LENGTH, SIDE_LENGTH);
+	public void addLength(Graphics h) {
+		super.paintComponent(h);
+		h.setColor(Color.GREEN);
+		h.fillRect(ulx-26, uly-26, SIDE_LENGTH, SIDE_LENGTH);
 	}
+	*/
 	
 	private class MoveAction extends AbstractAction {
 		private int direction;
