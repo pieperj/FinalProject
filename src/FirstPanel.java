@@ -194,7 +194,7 @@ public class FirstPanel extends JPanel {
 					add(homeButton);
 					if(score > highScore) {
 						highScore = score;
-						lblHighScore.setText("High Score: " + String.format("%02d", highScore));
+						lblHighScore.setText("Score: " + String.format("%02d", highScore));
 
 					}
 				}
@@ -214,9 +214,30 @@ public class FirstPanel extends JPanel {
 		g.fillRect(pelletCoordx, pelletCoordy, SIDE_LENGTH, SIDE_LENGTH);
 		
 		//if(scoreAdded) {
-			g.setColor(Color.GREEN);
-			g.fillRect(ulx-20, uly, SIDE_LENGTH, SIDE_LENGTH);
+			//g.setColor(Color.GREEN);
+			//g.fillRect(ulx-20, uly, SIDE_LENGTH, SIDE_LENGTH);
 		//}
+		switch(currentDirection) {	
+	case RIGHT:
+		g.setColor(Color.GREEN);
+		g.fillRect(ulx-20, uly, SIDE_LENGTH, SIDE_LENGTH);
+		break;
+		
+	case LEFT:
+		g.setColor(Color.GREEN);
+		g.fillRect(ulx+20, uly, SIDE_LENGTH, SIDE_LENGTH);
+		break;
+		
+	case DOWN:
+		g.setColor(Color.GREEN);
+		g.fillRect(ulx, uly-20, SIDE_LENGTH, SIDE_LENGTH);
+		break;
+		
+	case UP:
+		g.setColor(Color.GREEN);
+		g.fillRect(ulx, uly+20, SIDE_LENGTH, SIDE_LENGTH);
+		break;
+		}
 		
 		//sets white borders
 		g.setColor(Color.WHITE);

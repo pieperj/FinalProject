@@ -22,7 +22,6 @@ public class HomePanel extends JPanel {
 		
 		System.out.println("hello");
 		
-		
 		JLabel snakeLabel = new JLabel("SNAKE");
 		snakeLabel.setBounds(156, 5, 137, 54);
 		snakeLabel.setForeground(Color.WHITE);

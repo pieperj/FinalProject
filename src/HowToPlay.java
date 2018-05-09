@@ -33,14 +33,14 @@ public class HowToPlay extends JPanel {
 		txtpnUseThe.setForeground(Color.GREEN);
 		txtpnUseThe.setBackground(Color.BLACK);
 		txtpnUseThe.setText("• Use the arrow keys to move the snake up, down, left, and right.");
-		txtpnUseThe.setBounds(64, 58, 324, 40);
+		txtpnUseThe.setBounds(64, 47, 324, 40);
 		add(txtpnUseThe);
 		JTextPane txtpnCollectThe = new JTextPane();
 		txtpnCollectThe.setText("• Collect the pellet to earn points and make your snake grow.");
 		txtpnCollectThe.setForeground(Color.GREEN);
 		txtpnCollectThe.setFont(new Font("Arial", Font.PLAIN, 16));
 		txtpnCollectThe.setBackground(Color.BLACK);
-		txtpnCollectThe.setBounds(64, 110, 324, 40);
+		txtpnCollectThe.setBounds(64, 92, 324, 40);
 		add(txtpnCollectThe);
 		
 		JTextPane txtpnBeCareful = new JTextPane();
@@ -48,11 +48,11 @@ public class HowToPlay extends JPanel {
 		txtpnBeCareful.setForeground(Color.GREEN);
 		txtpnBeCareful.setFont(new Font("Arial", Font.PLAIN, 16));
 		txtpnBeCareful.setBackground(Color.BLACK);
-		txtpnBeCareful.setBounds(64, 162, 324, 40);
+		txtpnBeCareful.setBounds(64, 136, 324, 40);
 		add(txtpnBeCareful);
 		
 		JButton btnHome = new JButton("Home");
-		btnHome.setBounds(6, 265, 117, 29);
+		btnHome.setBounds(271, 188, 117, 29);
 		btnHome.addActionListener(new ActionListener() {
 
 			@Override
@@ -72,19 +72,19 @@ public class HowToPlay extends JPanel {
 		super.paint(g);
 		
 		g.setColor(Color.GREEN);
-		g.fillRect(198, 325, 25, 25);
-		g.fillRect(224, 325, 25, 25);
-		g.fillRect(250, 325, 25, 25);
-		g.fillRect(276, 325, 25, 25);
-		g.fillRect(302, 325, 25, 25);
-		g.fillRect(328, 325, 25, 25);
+		g.fillRect(148, 300, 25, 25);
+		g.fillRect(174, 300, 25, 25);
+		g.fillRect(200, 300, 25, 25);
+		g.fillRect(226, 300, 25, 25);
+		g.fillRect(252, 300, 25, 25);
+		g.fillRect(278, 300, 25, 25);
 
-		g.fillRect(172, 325, 25, 25);
-		g.fillRect(172, 299, 25, 25);
-		g.fillRect(172, 273, 25, 25);
+		g.fillRect(122, 300, 25, 25);
+		g.fillRect(122, 274, 25, 25);
+		g.fillRect(122, 248, 25, 25);
 		
 		g.setColor(Color.RED);
 		
-		g.fillRect(172, 221, 25, 25);
+		g.fillRect(122, 196, 25, 25);
 	}
 }
