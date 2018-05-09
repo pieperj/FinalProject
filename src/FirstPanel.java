@@ -57,7 +57,7 @@ public class FirstPanel extends JPanel {
 			possibley[i] = tempdy;
 			tempdy += 20;
 		}
-		
+		System.out.println();
 		System.out.println(Arrays.toString(possiblex));
 		System.out.println(Arrays.toString(possibley));
 		
