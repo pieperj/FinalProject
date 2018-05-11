@@ -200,7 +200,7 @@ public class FirstPanel extends JPanel {
 					add(homeButton);
 					if(score > highScore) {
 						highScore = score;
-						lblHighScore.setText("High Score: " + String.format("%02d", highScore));
+						lblHighScore.setText("Score: " + String.format("%02d", highScore));
 
 					}
 				}
