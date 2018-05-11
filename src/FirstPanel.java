@@ -43,6 +43,8 @@ public class FirstPanel extends JPanel {
 	/**
 	 * Create the panel.
 	 */
+	Snake snake = new Snake(SIDE_LENGTH, ulx, uly);
+	//Body b1 = new Body(SIDE_LENGTH, u)
 	
 	public FirstPanel(PanelChangeListener l) {
 		setBackground(Color.BLACK);
@@ -57,6 +59,7 @@ public class FirstPanel extends JPanel {
 			possibley[i] = tempdy;
 			tempdy += 20;
 		}
+		
 		System.out.println(Arrays.toString(possiblex));
 		System.out.println(Arrays.toString(possibley));
 		
@@ -136,6 +139,7 @@ public class FirstPanel extends JPanel {
 		pelletCoordy = possibley[(int)(Math.random()*possibley.length)];
 		
 		
+		
 		Timer timer = new Timer(100, new ActionListener() {
 
 			@Override
@@ -172,6 +176,8 @@ public class FirstPanel extends JPanel {
 					
 				if(ulx == pelletCoordx && uly == pelletCoordy) {
 					score++;
+					
+					//Body b1 = new Body(20, )
 					scoreAdded = true;
 					scoreLabel.setText("Score: " + String.format("%d", score));
 					pelletCoordx = possiblex[(int)(Math.random()*possiblex.length)];
@@ -208,7 +214,7 @@ public class FirstPanel extends JPanel {
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		g.setColor(Color.GREEN);
-		g.fillRect(ulx, uly, SIDE_LENGTH, SIDE_LENGTH);
+		g.fillRect(ulx, uly, snake.getSideLength(), snake.getSideLength());
 		
 		g.setColor(Color.RED);
 		g.fillRect(pelletCoordx, pelletCoordy, SIDE_LENGTH, SIDE_LENGTH);
