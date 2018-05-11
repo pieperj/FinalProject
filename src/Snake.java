@@ -16,13 +16,6 @@ public class Snake {
 	public void setSideLength(int sideLength) {
 		this.sideLength = sideLength;
 	}
-	
-	public void paintComponent(Graphics g) {
-		
-		g.setColor(Color.GREEN);
-		g.drawRect(x, y, sideLength, sideLength);
-		
-	}
 
 	public int getX() {
 		return x;
