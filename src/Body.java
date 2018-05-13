@@ -3,7 +3,7 @@ public class Body {
 	
 	private int sideLength, x, y;
 	private int direction = 0;
-	private int UP = 0, RIGHT = 1, DOWN = 2, LEFT = 3;
+	private final int UP = 0, RIGHT = 1, DOWN = 2, LEFT = 3;
 
 	public Body(int sideLength, int x, int y) {
 		this.sideLength = sideLength;
@@ -35,6 +35,11 @@ public class Body {
 		this.y = y;
 	}
 	
+	public void setCoords(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
+	/*
 	public void setCoords(Body other) {
 		if(other.getDirection() == UP) {
 			this.y = other.y + 20;
@@ -50,6 +55,24 @@ public class Body {
 		}
 		
 	}
+	*/
+	public Point getPointInFront(Body other, int score) {
+		
+		if(other.getDirection() == UP) {
+			return new Point(other.getX(), other.getY() + (score * 20));
+		}
+		else if(other.getDirection() == RIGHT) {
+			return new Point(other.getX() - (score * 20), other.getY());
+		}
+		else if(other.getDirection() == DOWN) {
+			return new Point(other.getX(), other.getY() - (score * 20));	
+		}
+		else if(other.getDirection() == LEFT) {
+			return new Point(other.getX() + (score * 20), other.getY());		
+		}
+		return new Point(0,0);
+		
+	}
 	
 	public void setDirection(int direction) {
 		
@@ -59,6 +82,10 @@ public class Body {
 	
 	public int getDirection() {
 		return direction;
+	}
+	
+	public String toString() {
+		return "(" + x + ", " + y + ")";
 	}
 	
 	

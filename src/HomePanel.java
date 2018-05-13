@@ -7,12 +7,19 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 
 public class HomePanel extends JPanel {
 
 	private PanelChangeListener listener;
+	JRadioButton colorRedButton = new JRadioButton("Red");
+	JRadioButton colorOrangeButton = new JRadioButton("Orange");
+	JRadioButton colorYellowButton = new JRadioButton("Yellow");
+	JRadioButton colorGreenButton = new JRadioButton("Green");
+ 	JRadioButton colorBlueButton = new JRadioButton("Blue");
+	JRadioButton colorPurpleButton = new JRadioButton("Purple");
 	
-	
+	static Color color = new Color(255, 255, 0);
 	
 	public HomePanel(PanelChangeListener l) {
 		setForeground(Color.BLACK);
@@ -36,7 +43,29 @@ public class HomePanel extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				listener.changePanel("FirstPanel");
-				
+				if(colorRedButton.isSelected()) {
+					color = Color.RED;
+				}
+				else if(colorOrangeButton.isSelected()) {
+					color = new Color(230, 126, 34); //orange
+				}
+				else if(colorYellowButton.isSelected()) {
+					color = Color.YELLOW;
+				}
+				else if(colorGreenButton.isSelected()) {
+					color = Color.GREEN; //green
+				}
+				else if(colorBlueButton.isSelected()) {
+					color = new Color(6,82,221); //blue
+				}
+				else if(colorPurpleButton.isSelected()) {
+					color = new Color(113,88,226); //purple
+				}
+				else {
+					color = Color.GREEN;
+				}
+				System.out.println(HomePanel.getColor());
+
 			}
 			
 		});
@@ -46,7 +75,34 @@ public class HomePanel extends JPanel {
 		btnHowToPlay.setBounds(166, 157, 117, 29);
 		add(btnHowToPlay);
 		
-	
+		colorRedButton.setForeground(Color.RED);
+		colorRedButton.setBounds(303, 80, 141, 23);
+		
+		add(colorRedButton);
+		
+		colorOrangeButton.setForeground(new Color(230, 126, 34)); //ORANGE
+		colorOrangeButton.setBounds(303, 110, 141, 23);
+		add(colorOrangeButton);
+		
+		colorYellowButton.setForeground(Color.YELLOW);
+		colorYellowButton.setBounds(303, 140, 141, 23);
+		add(colorYellowButton);
+		
+		colorGreenButton.setForeground(Color.GREEN); //GREEN
+		colorGreenButton.setBounds(303, 170, 141, 23);
+		add(colorGreenButton);
+		
+		colorBlueButton.setForeground(new Color (6,82,221)); //BLUE
+		colorBlueButton.setBounds(303, 200, 141, 23);
+		add(colorBlueButton);
+		
+		colorPurpleButton.setForeground(new Color(113,88,226)); //PURPLE
+		colorPurpleButton.setBounds(303, 230, 141, 23);
+		add(colorPurpleButton);
+		
+		
+		
+		
 		
 		btnHowToPlay.addActionListener(new ActionListener() {
 
@@ -60,6 +116,12 @@ public class HomePanel extends JPanel {
 		});
 
 		
+		
+
+	}
+	
+	public static Color getColor() {
+		return color;
 	}
 	
 	@Override

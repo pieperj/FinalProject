@@ -4,6 +4,8 @@ import java.awt.Graphics;
 public class Snake {
 	
 	private int sideLength, x, y;
+	private int direction = 0;
+	private int UP = 0, RIGHT = 1, DOWN = 2, LEFT = 3;
 	
 	public Snake(int sideLength, int x, int y) {
 		this.sideLength = sideLength;
