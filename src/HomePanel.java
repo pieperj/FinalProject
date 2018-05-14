@@ -37,7 +37,7 @@ public class HomePanel extends JPanel {
 		
 		JButton playButton = new JButton("PLAY");
 		playButton.setBounds(166, 116, 117, 29);
-		playButton.setFont(new Font("Futura", Font.PLAIN, 20));
+		playButton.setFont(new Font("Futura", Font.PLAIN, 15));
 		playButton.addActionListener(new ActionListener() {
 
 			@Override
@@ -73,6 +73,7 @@ public class HomePanel extends JPanel {
 		
 		JButton btnHowToPlay = new JButton("HOW TO PLAY");
 		btnHowToPlay.setBounds(166, 157, 117, 29);
+		btnHowToPlay.setFont(new Font("Futura", Font.PLAIN, 12));
 		add(btnHowToPlay);
 		
 		colorRedButton.setForeground(Color.RED);

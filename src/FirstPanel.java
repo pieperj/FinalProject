@@ -20,34 +20,35 @@ import javax.swing.Timer;
 
 public class FirstPanel extends JPanel {
 	
+	//score fields
 	private int score = 0;
-	public int highScore = 0;
+	private int highScore = 0;
 	
+	//fields for Snake's head movement
 	private int ulx = 100, uly = 100;
 	private final int SIDE_LENGTH = 20, UP = 0, RIGHT = 1, DOWN = 2, LEFT = 3;
 	private int currentDirection = 1;
 	
+	//used for generating pellet coordinates
 	private int tempdx = 20;
 	private int tempdy = 80;
 	
-	private int tempCoordx, tempCoordy;
+	//arrays filled with possible values for pellet coordinates
 	private int[] possiblex = new int[19];
 	private int[] possibley = new int[16];
-	
 	private int pelletCoordx, pelletCoordy;
+	
+	//used to change panels 
 	private PanelChangeListener listener;
 	
-	
-	/**
-	 * Create the panel.
-	 */
+	//snake's head initialized
 	Snake snake = new Snake(SIDE_LENGTH, ulx, uly);
 	
+	//first body + array filled with Body objects, each with sets of coordinates
 	Body b1 = new Body(SIDE_LENGTH, ulx, uly);
 	ArrayList<Body> bodyArr = new ArrayList<>();
 	
-	//Point currentPoint = new Point(ulx, uly);
-	
+	//initialized labels/buttons here to save space (see setLayout())
 	JLabel scoreLabel = new JLabel("Score: " + String.format("%d", score));
 	JLabel Lblsnake = new JLabel("SNAKE");
 	JLabel lblHighScore = new JLabel("Score: ");
@@ -58,13 +59,13 @@ public class FirstPanel extends JPanel {
 
 	
 	
-	//Body b1 = new Body(SIDE_LENGTH, 0, 0);
-	//Body b1 = new Body(SIDE_LENGTH, u)
-	
 	public FirstPanel(PanelChangeListener l) {
 		setBackground(Color.BLACK);
 		setLayout(null);
 		this.listener = l;
+		
+		//here the arrays are filled with random coordinate values, 
+		//increments by 20
 		for(int i = 0; i < possiblex.length; i++) {
 			possiblex[i] = tempdx;
 			tempdx += 20;
@@ -75,15 +76,19 @@ public class FirstPanel extends JPanel {
 			tempdy += 20;
 		}
 		
+		//adds first body to array
 		bodyArr.add(b1);
 		
 		
+		/* used to see array of possible pellet coordinates
+		 * System.out.println(Arrays.toString(possiblex));
+		 * System.out.println(Arrays.toString(possibley));
+		 */
 		
-		System.out.println(Arrays.toString(possiblex));
-		System.out.println(Arrays.toString(possibley));
-		
+		//calls method to make buttons appear on screen
 		setLayout();
 		
+		//used to move snake's head based on key pressed
 		getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_UP, 0), "moveUp");
 		getActionMap().put("moveUp", new MoveAction(UP));
 		
@@ -96,24 +101,21 @@ public class FirstPanel extends JPanel {
 		getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, 0), "moveRight");
 		getActionMap().put("moveRight", new MoveAction(RIGHT));
 		
+		//picks a random coordinate from the possible pellet coordinates
 		pelletCoordx = possiblex[(int)(Math.random()*possiblex.length)];
 		pelletCoordy = possibley[(int)(Math.random()*possibley.length)];
 		
+		//sets timer for time in-between repainting
 		Timer timer = new Timer(80, new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				int dx, dy;
 				
-				if(ulx <= 430 && ulx >= 0 && uly >= 60 && uly <= 400) {
-					
-					for(int i = 0; i < bodyArr.size(); i++) {
-						if(ulx != bodyArr.get(i).getX() && (uly != bodyArr.get(i).getY())) {
-							
-						}
-					}
+				//if the snake's head is within the boundaries
+				if(ulx <= 430 && ulx >= 0 && uly >= 60 && uly <= 400 ) { //&& isTouching(bodyArr, ulx, uly)
 												 
-	
+					//moves the head based on direction
 					switch(currentDirection) {
 					case UP:
 						dx = 0;
@@ -136,26 +138,32 @@ public class FirstPanel extends JPanel {
 						dy = 0;
 				}
 				
+				//checks to see if the head is at the same spot as the pellet
 				if(ulx == pelletCoordx && uly == pelletCoordy) {
 					score++;
 					
-					//System.out.println(bodyArr);
+					//if so, add a new Body to the array, which gets painted later
 					bodyArr.add(new Body(20, bodyArr.get(score-1).getX(), bodyArr.get(score-1).getY()));
-					//System.out.println(currentPoint.toString());
 					
 					scoreLabel.setText("Score: " + String.format("%d", score));
+					
+					//after pellet is eaten, move it to a new, random coordinate
 					pelletCoordx = possiblex[(int)(Math.random()*possiblex.length)];
 					pelletCoordy = possibley[(int)(Math.random()*possibley.length)];
 					repaint();
 				}
 				
 				
-					
+				//keeps a running total of the position of the head
 				ulx += dx;
 				uly += dy;
 				repaint();
-				}	
+				}
 				
+				/*
+				 * if the head is not in the boundaries, stop repainting 
+				 * and add game over widgets. Also show high score
+				 */
 				else {
 					add(lblGameOver);
 					add(btnRetry);
@@ -169,6 +177,7 @@ public class FirstPanel extends JPanel {
 			}
 		});
 		
+		//begin the timer
 		timer.start();
 	}
 	
@@ -176,16 +185,13 @@ public class FirstPanel extends JPanel {
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		
-		//sets snake color to green
-		
+		//sets snake head color to selected color. Green is default
 		g.setColor(HomePanel.getColor());
-		//g.setColor(Color.GREEN);
 		
-		//head
+		//creates head
 		g.fillRect(ulx, uly, SIDE_LENGTH, SIDE_LENGTH);
-		
-		
-		//sets coords of a body to the one before it
+
+		//sets coordinates of a body to the one before it
 		for(int i = bodyArr.size() - 1; i > 0; i--) {
 			bodyArr.get(i).setCoords(bodyArr.get(i-1).getX(), 
 									bodyArr.get(i-1).getY());
@@ -202,7 +208,7 @@ public class FirstPanel extends JPanel {
 		g.setColor(HomePanel.getColor());
 		
 		
-		//goes through each body and paints onto the panel
+		//goes through each body and paints each onto the panel
 		for(int i = 0; i < bodyArr.size(); i++) {
 			g.fillRect(bodyArr.get(i).getX(), bodyArr.get(i).getY(), 20, 20);
 			
@@ -217,7 +223,17 @@ public class FirstPanel extends JPanel {
 		
 		}
 	
+	// not implemented yet
+	public boolean isTouching(ArrayList<Body> arr, int x, int y) {
+		for(int i = 1; i < arr.size()-1; i++) {
+			if(arr.get(i-1).getX() == x && arr.get(i-1).getY() == y) {
+				return false;
+			}
+		}
+		return true;
+	}
 	
+	// Helper method that sets layout of the screen. 
 	public void setLayout() {
 		scoreLabel.setForeground(Color.WHITE);
 		scoreLabel.setBounds(6, 18, 100, 42);
@@ -272,6 +288,7 @@ public class FirstPanel extends JPanel {
 		lblGameOver.setBounds(100, 128, 243, 54);
 	}
 	
+	//used to move the head based on direction
 	private class MoveAction extends AbstractAction {
 		private int direction;
 		
