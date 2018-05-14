@@ -56,23 +56,7 @@ public class Body {
 		
 	}
 	*/
-	public Point getPointInFront(Body other, int score) {
-		
-		if(other.getDirection() == UP) {
-			return new Point(other.getX(), other.getY() + (score * 20));
-		}
-		else if(other.getDirection() == RIGHT) {
-			return new Point(other.getX() - (score * 20), other.getY());
-		}
-		else if(other.getDirection() == DOWN) {
-			return new Point(other.getX(), other.getY() - (score * 20));	
-		}
-		else if(other.getDirection() == LEFT) {
-			return new Point(other.getX() + (score * 20), other.getY());		
-		}
-		return new Point(0,0);
-		
-	}
+	
 	
 	public void setDirection(int direction) {
 		
