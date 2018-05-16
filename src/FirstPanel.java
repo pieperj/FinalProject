@@ -42,7 +42,7 @@ public class FirstPanel extends JPanel {
 	private PanelChangeListener listener;
 	
 	//snake's head initialized
-	Snake snake = new Snake(SIDE_LENGTH, ulx, uly);
+	Body snake = new Body(SIDE_LENGTH, ulx, uly);
 	
 	//first body + array filled with Body objects, each with sets of coordinates
 	Body b1 = new Body(SIDE_LENGTH, ulx, uly);
@@ -77,8 +77,8 @@ public class FirstPanel extends JPanel {
 		}
 		
 		//adds first body to array
-		bodyArr.add(b1);
-		
+		bodyArr.add(snake);
+		System.out.println();
 		
 		/* used to see array of possible pellet coordinates
 		 * System.out.println(Arrays.toString(possiblex));
@@ -113,7 +113,7 @@ public class FirstPanel extends JPanel {
 				int dx, dy;
 				
 				//if the snake's head is within the boundaries
-				if(ulx <= 430 && ulx >= 0 && uly >= 60 && uly <= 400 ) { //&& isTouching(bodyArr, ulx, uly)
+				if(ulx <= 430 && ulx >= 0 && uly >= 60 && uly <= 400 && isTouching(bodyArr, ulx, uly)) { 
 												 
 					//moves the head based on direction
 					switch(currentDirection) {
@@ -191,22 +191,42 @@ public class FirstPanel extends JPanel {
 		//creates head
 		g.fillRect(ulx, uly, SIDE_LENGTH, SIDE_LENGTH);
 
+
 		//sets coordinates of a body to the one before it
 		for(int i = bodyArr.size() - 1; i > 0; i--) {
 			bodyArr.get(i).setCoords(bodyArr.get(i-1).getX(), 
 									bodyArr.get(i-1).getY());
 		}
 		
-		//puts first body where the head was
-		b1.setCoords(ulx, uly);
+		snake.setCoords(ulx, uly);
 
+		//bodyArr.add(snake);
+
+		//puts first body where the head was
+		
+		/*
+		switch(currentDirection) {
+		case UP:
+			b1.setCoords(ulx, uly+20);
+			break;	
+		case DOWN:
+			b1.setCoords(ulx, uly-20);
+			break;		
+		case LEFT:
+			b1.setCoords(ulx+20, uly);
+			break;			
+		case RIGHT:
+			b1.setCoords(ulx-20, uly);
+			break;	
+		}
+		*/
 		
 		//paints pellet at random coordinate
 		g.setColor(Color.WHITE);
 		g.fillRect(pelletCoordx, pelletCoordy, SIDE_LENGTH, SIDE_LENGTH);
 		
 		g.setColor(HomePanel.getColor());
-		
+	
 		
 		//goes through each body and paints each onto the panel
 		for(int i = 0; i < bodyArr.size(); i++) {
@@ -220,17 +240,19 @@ public class FirstPanel extends JPanel {
 		g.drawLine(439, 60, 439, 430);
 		g.drawLine(0, 60, 0, 430);
 		g.drawLine(0, 422, 456, 422);
-		
 		}
 	
 	// not implemented yet
 	public boolean isTouching(ArrayList<Body> arr, int x, int y) {
-		for(int i = 1; i < arr.size()-1; i++) {
+		
+		for(int i = 3; i < arr.size()-1; i++) {
 			if(arr.get(i-1).getX() == x && arr.get(i-1).getY() == y) {
 				return false;
 			}
 		}
+		
 		return true;
+		
 	}
 	
 	// Helper method that sets layout of the screen. 
