@@ -22,7 +22,7 @@ public class FirstPanel extends JPanel {
 	
 	//score fields
 	private int score = 0;
-	private int highScore = 0;
+	private static int highScore = 0;
 	
 	//fields for Snake's head movement
 	private int ulx = 100, uly = 100;
@@ -78,7 +78,7 @@ public class FirstPanel extends JPanel {
 		
 		//adds first body to array
 		bodyArr.add(snake);
-		System.out.println();
+		
 		
 		/* used to see array of possible pellet coordinates
 		 * System.out.println(Arrays.toString(possiblex));
@@ -200,26 +200,6 @@ public class FirstPanel extends JPanel {
 		
 		snake.setCoords(ulx, uly);
 
-		//bodyArr.add(snake);
-
-		//puts first body where the head was
-		
-		/*
-		switch(currentDirection) {
-		case UP:
-			b1.setCoords(ulx, uly+20);
-			break;	
-		case DOWN:
-			b1.setCoords(ulx, uly-20);
-			break;		
-		case LEFT:
-			b1.setCoords(ulx+20, uly);
-			break;			
-		case RIGHT:
-			b1.setCoords(ulx-20, uly);
-			break;	
-		}
-		*/
 		
 		//paints pellet at random coordinate
 		g.setColor(Color.WHITE);
