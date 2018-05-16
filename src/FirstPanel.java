@@ -78,7 +78,6 @@ public class FirstPanel extends JPanel {
 		
 		//adds first body to array
 		bodyArr.add(snake);
-		System.out.println(bodyArr);
 		
 		/* used to see array of possible pellet coordinates
 		 * System.out.println(Arrays.toString(possiblex));
