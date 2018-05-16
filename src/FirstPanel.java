@@ -170,8 +170,8 @@ public class FirstPanel extends JPanel {
 					add(homeButton);
 					if(score > highScore) {
 						highScore = score;
-						lblHighScore.setText("Score: " + String.format("%02d", highScore));
-
+						lblHighScore.setText("Score: " + highScore);
+						
 					}
 				}
 			}
@@ -272,6 +272,7 @@ public class FirstPanel extends JPanel {
 		lblHighScore.setForeground(Color.WHITE);
 		lblHighScore.setBounds(344, 18, 100, 42);
 		lblHighScore.setFont(new Font("Futura", Font.PLAIN, 20));
+		
 		add(lblHighScore);
 		
 		lblHigh.setFont(new Font("Futura", Font.PLAIN, 20));
