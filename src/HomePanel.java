@@ -101,7 +101,8 @@ public class HomePanel extends JPanel {
 		colorPurpleButton.setBounds(303, 230, 141, 23);
 		add(colorPurpleButton);
 		
-		JButton btnNewButton = new JButton("New button");
+		JButton btnNewButton = new JButton("Customize");
+		btnNewButton.setForeground(Color.BLACK);
 		btnNewButton.setBounds(166, 198, 117, 29);
 		add(btnNewButton);
 		
